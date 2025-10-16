@@ -1,0 +1,27 @@
+controller:
+  config:
+    http-snippet: |
+      server {
+        listen 2443;
+        return 308 https://$host$request_uri;
+      }
+    proxy-real-ip-cidr: "172.18.136.0/22"
+    use-forwarded-headers: "true"
+    forwarded-for-header: "X-Forwarded-For"
+    real-ip-header: "X-Forwarded-For"
+  service:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+      service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '60'
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
+      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
+      service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+      service.beta.kubernetes.io/aws-load-balancer-type: elb
+    appProtocol: false
+    enableHttp: false
+    targetPorts:
+      https: http
+  admissionWebhooks:
+    enabled: false

@@ -1,3 +1,4 @@
 resources:
   - ../../base/vault
   - ../../base/metrics-server
+  - ../../base/ingress-nginx
