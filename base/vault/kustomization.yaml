@@ -1,0 +1,4 @@
+generators:
+- helm.yaml
+resources:
+  - namespace.yaml

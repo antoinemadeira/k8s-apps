@@ -1,0 +1,11 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: vault
+name: vault
+namespace: vault
+releaseName: vault
+version: "0.31.0"
+repo: https://helm.releases.hashicorp.com
+includeCRDs: true
+#valuesFile: values.yaml
