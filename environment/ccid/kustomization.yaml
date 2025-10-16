@@ -1,2 +1,3 @@
 resources:
   - ../../base/vault
+  - ../../base/metrics-server
