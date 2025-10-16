@@ -5,7 +5,7 @@ controller:
         listen 2443;
         return 308 https://$host$request_uri;
       }
-    proxy-real-ip-cidr: "172.18.136.0/22"
+    proxy-real-ip-cidr: "172.18.128.0/20"
     use-forwarded-headers: "true"
     forwarded-for-header: "X-Forwarded-For"
     real-ip-header: "X-Forwarded-For"
