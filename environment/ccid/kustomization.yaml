@@ -1,2 +1,2 @@
 resources:
-  - ../base/vault
+  - /../../base/vault
